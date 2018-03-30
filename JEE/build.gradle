@@ -1,0 +1,48 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'war'
+
+repositories {
+    mavenLocal()
+	maven {
+		url "${artifactory_contextUrl}/repo"
+		credentials {
+			username "${artifactory_user}"
+			password "${artifactory_password}"
+		}
+	}
+    mavenCentral()
+}
+
+sourceCompatibility = "1.8"
+targetCompatibility = "1.8"
+
+war {
+    baseName = 'users'
+}
+
+dependencies {
+	providedCompile("javax:javaee-api:7.0")
+}
+
+project(":earProject") {
+    apply plugin: 'ear'
+
+    dependencies {
+        deploy project(path: ":", configuration: 'archives')
+    }
+
+    ear {
+        archiveName 'JEE.ear'
+
+        deploymentDescriptor {
+            applicationName = "JEE"
+            webModule(rootProject.configurations['archives'].artifacts[0].file.name, "/users")
+        }
+    }
+
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.4'
+}

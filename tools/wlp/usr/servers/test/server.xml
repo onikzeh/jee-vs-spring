@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<server description="test server">
+  
+  <featureManager>
+    <feature>webProfile-7.0</feature>
+    <feature>localConnector-1.0</feature>
+  </featureManager>
+
+  <httpEndpoint host="*" id="defaultHttpEndpoint" httpPort="9080" httpsPort="9443" />
+
+  <applicationManager autoExpand="true" />
+  <applicationMonitor updateTrigger="mbean" />
+
+  <dataSource id="H2DataSource" jndiName="jdbc/h2" type="javax.sql.DataSource">
+    <jdbcDriver libraryRef="H2_JAR" javax.sql.ConnectionPoolDataSource="org.h2.jdbcx.JdbcDataSource" javax.sql.DataSource="org.h2.jdbcx.JdbcDataSource" javax.sql.XADataSource="org.h2.jdbcx.JdbcDataSource" />
+    <properties URL="jdbc:h2:tcp://localhost:8090/mem:test" user="test" password="test" databaseName="test" />
+  </dataSource>
+
+  <library id="H2_JAR">
+    <fileset dir="${shared.resource.dir}/h2" />
+  </library>
+
+</server>
+
