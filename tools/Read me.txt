@@ -47,4 +47,18 @@ public class UserService {
     }
 }
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Config H2 data source in WAS:
+
+Isolate this resource provider:
+	Checked
+Implementation class name:
+	org.h2.jdbcx.JdbcDataSource
+	
+Data store helper class name:
+		Specify a user-defined data store helper:
+		com.ibm.websphere.rsadapter.ConnectJDBCDataStoreHelper
+		
+		Custom properties:
+			URL : jdbc:h2:tcp://localhost:8090/mem:test  
+	
 	

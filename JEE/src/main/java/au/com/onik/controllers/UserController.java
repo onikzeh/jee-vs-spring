@@ -18,16 +18,10 @@ import java.util.List;
 @Stateless
 public class UserController {
 
-    //@Inject  Can be used for Liberty not for WAS. For WAS, @EJB must be used and also UserController must be annotated with @Stateless
+    //@Inject   //Can be used for Liberty not for WAS. For WAS, @EJB must be used and also UserController must be annotated with @Stateless
     // In Liberty, there is no need to annotate the class with @Stateless
     @EJB
     private UserService userService;
-
-    private static int instance = 0;
-
-    public UserController() {
-        System.out.println("UserController instance: "+instance++);
-    }
 
     @GET
     @Path("/list")
