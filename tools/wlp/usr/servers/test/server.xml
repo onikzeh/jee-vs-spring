@@ -20,5 +20,9 @@
     <fileset dir="${shared.resource.dir}/h2" />
   </library>
 
+  <executor name="LargeThreadPool" id="default" coreThreads="100" maxThreads="150" keepAlive="5s" stealPolicy="STRICT" rejectedWorkPolicy="CALLER_RUNS" />
+  <application id="Gradle___users_war__exploded_" location="D:\kevin\projects\jee-vs-spring\JEE\build\libs\exploded\users.war" name="Gradle___users_war__exploded_" type="war" context-root="/users" />
+  
+  
 </server>
 

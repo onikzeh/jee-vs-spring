@@ -1,6 +1,8 @@
 Version used in h2 server is h2-1.3.172.jar and the one used in WLP is h2-1.4.189.jar
 Using h2-1.3.172.jar in liberty to connect to h2-1.3.172.jar running server, does NOT work!
 
+All using h2-1.4.192.jar works fine but not available in office!
+
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 wlp\usr\servers\test\apps\expanded\JEE.ear\jee.war\WEB-INF\classes\META-INF\persistence.xml
 	
