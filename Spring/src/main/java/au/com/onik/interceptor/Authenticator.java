@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class Authenticator {
 
     @Around("execution(* au.com.onik.controllers.UserController.*(..))")
-    public Object logExecutionTime(ProceedingJoinPoint joinPoint) throws Throwable {
+    public Object intercept(ProceedingJoinPoint joinPoint) throws Throwable {
         return joinPoint.proceed();
     }
 }
